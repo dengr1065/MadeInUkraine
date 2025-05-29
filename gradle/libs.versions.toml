@@ -1,0 +1,30 @@
+[versions]
+activityKtx = "1.9.1"
+agp = "8.9.0"
+zxingAndroidEmbedded = "4.3.0"
+zxingCore = "3.5.3"
+kotlin = "2.0.20"
+coreKtx = "1.13.1"
+appcompat = "1.7.0"
+kotlinCsvJvm = "1.10.0"
+gmsCodeScannerVersion = "16.1.0"
+okhttp = "4.12.0"
+roomVersion = "2.6.1"
+
+[libraries]
+androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activityKtx" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomVersion" }
+zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", version.ref = "zxingAndroidEmbedded" }
+zxing-core = { module = "com.google.zxing:core", version.ref = "zxingCore" }
+gms-code-scanner = { module = "com.google.android.gms:play-services-code-scanner", version.ref = "gmsCodeScannerVersion" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+kotlin-csv-jvm = { module = "com.jsoizo:kotlin-csv-jvm", version.ref = "kotlinCsvJvm" }
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Зроблено в Україні</string>
+
+    <string name="open_calculator">Відкрити калькулятор</string>
+    <string name="update_database">Оновити базу даних</string>
+
+    <string name="product_status_none">Проскануйте товар</string>
+    <string name="product_status_missing">Товар не входить до списку</string>
+    <string name="product_status_active">Зроблено в Україні</string>
+    <string name="product_status_inactive">Товар не активний</string>
+
+    <string name="prop_name">Повне ім\'я: %s</string>
+    <string name="prop_short_name">Коротке ім\'я: %s</string>
+    <string name="prop_brand">Бренд: %s</string>
+    <string name="prop_date_added">Додано: %s</string>
+
+    <string name="open_scanner">Почати сканування</string>
+    <string name="open_old_scanner">Старий сканер</string>
+    <string name="scan_error">Помилка сканування</string>
+
+    <string name="open_calculator_error">Помилка відкриття калькулятора</string>
+
+    <string name="message_update_enqueued">Оновлення бази даних товарів…</string>
+    <string name="message_update_in_progress">Оновлення бази даних триває, додано товарів: %d</string>
+
+    <string name="lookup_hint">Назва товару чи бренду</string>
+</resources>

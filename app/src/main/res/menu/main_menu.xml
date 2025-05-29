@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuOpenCalculator"
+        android:icon="@drawable/ic_calculator"
+        android:title="@string/open_calculator"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menuUpdateDatabase"
+        android:title="@string/update_database"
+        app:showAsAction="never" />
+</menu>
