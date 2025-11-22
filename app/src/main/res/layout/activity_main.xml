@@ -70,14 +70,4 @@
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/buttonScanOld"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/open_old_scanner"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:visibility="gone"
-        android:textStyle="bold" />
 </LinearLayout>

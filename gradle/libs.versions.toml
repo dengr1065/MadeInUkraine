@@ -1,6 +1,9 @@
 [versions]
 activityKtx = "1.9.1"
-agp = "8.9.0"
+agp = "8.13.0"
+fragmentKtx = "1.8.9"
+json = "20250517"
+junit = "4.13.2"
 zxingAndroidEmbedded = "4.3.0"
 zxingCore = "3.5.3"
 kotlin = "2.0.20"
@@ -14,9 +17,12 @@ roomVersion = "2.6.1"
 [libraries]
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activityKtx" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomVersion" }
+json = { module = "org.json:json", version.ref = "json" }
+junit = { module = "junit:junit", version.ref = "junit" }
 zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", version.ref = "zxingAndroidEmbedded" }
 zxing-core = { module = "com.google.zxing:core", version.ref = "zxingCore" }
 gms-code-scanner = { module = "com.google.android.gms:play-services-code-scanner", version.ref = "gmsCodeScannerVersion" }

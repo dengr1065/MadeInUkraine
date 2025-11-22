@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ProductDao {
@@ -19,6 +20,9 @@ interface ProductDao {
 
     @Query("SELECT COUNT(ean) FROM Product")
     fun getCount(): Int
+
+    @Query("SELECT COUNT(ean) FROM Product")
+    fun getLiveCount(): Flow<Int>
 
     @Query("SELECT * FROM Product WHERE ean = :ean")
     fun getByEan(ean: Long): Product?

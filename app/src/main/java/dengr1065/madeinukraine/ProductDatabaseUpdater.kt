@@ -40,6 +40,6 @@ class ProductDatabaseUpdater(private val dao: ProductDao) {
 
     companion object {
         private const val TAG = "ProductDatabaseUpdater"
-        const val BUFFER_SIZE = 1000
+        const val BUFFER_SIZE = 5000
     }
 }

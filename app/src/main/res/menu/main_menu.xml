@@ -12,4 +12,9 @@
         android:id="@+id/menuUpdateDatabase"
         android:title="@string/update_database"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menuShowStats"
+        android:title="@string/show_stats"
+        app:showAsAction="never" />
 </menu>

@@ -2,6 +2,7 @@ package dengr1065.madeinukraine
 
 import android.app.Application
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -17,16 +18,23 @@ import okhttp3.internal.headersContentLength
 import org.json.JSONObject
 import java.io.BufferedInputStream
 import java.io.InputStream
+import java.time.Duration
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val _product = MutableLiveData<Product?>()
-    val product: LiveData<Product?> = _product
 
     private val db = Room.databaseBuilder(application, AppDatabase::class.java, "products").build()
     private val productDao = db.productDao()
 
-    private val httpClient = OkHttpClient.Builder().build()
+    private val _product = MutableLiveData<Product?>()
+    val product: LiveData<Product?> = _product
+
+    val databaseCount = productDao.getLiveCount()
+
+    private val httpClient = OkHttpClient.Builder()
+        .readTimeout(Duration.ofMinutes(1))
+        .build()
+    private val service = OnlineService(httpClient)
+
     private var isUpdateInProgress = false
 
     fun checkEan(ean: Long) {
@@ -63,30 +71,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private fun checkOnline(ean: Long): Product? {
         return try {
-            val response = Request.Builder()
-                .url(BARCODE_API_URL + ean.toString())
-                .build()
-                .let { httpClient.newCall(it).execute() }
-
-            if (response.code >= 400) {
-                Log.e(TAG, "checkOnline: request failed with code ${response.code}")
-                return null
-            }
-
-            val data = response.body?.string()?.let {
-                val obj = JSONObject(it).getJSONObject("data")
-                if (obj.getInt("total") == 0) {
-                    return@let null
-                }
-
-                obj.getJSONArray("data").getJSONObject(0)
-            } ?: return null
-
-            val productName = data.getString("name")
-            val brand = data.getJSONObject("brand").getString("name")
-
-            Product(ean, productName, productName, brand, "API")
+            return service.lookupByBarcode(ean)
         } catch (e: Exception) {
+            val context = getApplication<Application>()
+            Toast.makeText(context, R.string.online_lookup_error, Toast.LENGTH_SHORT).show()
+
             Log.e(TAG, "checkOnline: exception while checking", e)
             null
         }
@@ -107,6 +96,5 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         const val TAG = "MainViewModel"
         const val PRODUCTS_CSV_URL =
             "https://api.madeinukraine.gov.ua/storage/exports/products.csv"
-        const val BARCODE_API_URL = "https://api.madeinukraine.gov.ua/api/products?barcode="
     }
 }

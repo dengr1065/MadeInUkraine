@@ -24,6 +24,7 @@ import com.google.mlkit.vision.codescanner.GmsBarcodeScanning
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanOptions
 import dengr1065.madeinukraine.databinding.ActivityMainBinding
+import dengr1065.madeinukraine.stats.StatsDialogFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -57,10 +58,6 @@ class MainActivity : AppCompatActivity() {
             checkAndOpenGmsScanner()
         }
 
-        binding.buttonScanOld.setOnClickListener {
-            openScanner()
-        }
-
         viewModel.product.observe(this) {
             showProductData(it)
         }
@@ -85,6 +82,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.menuOpenCalculator -> openCalculator()
+
+            R.id.menuShowStats -> {
+                StatsDialogFragment().show(supportFragmentManager, FRAGMENT_STATS_DIALOG)
+            }
             else -> return false
         }
 
@@ -174,5 +175,9 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             false
         }
+    }
+
+    companion object {
+        const val FRAGMENT_STATS_DIALOG = "stats_dialog"
     }
 }

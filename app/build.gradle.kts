@@ -6,23 +6,20 @@ plugins {
 
 android {
     namespace = "dengr1065.madeinukraine"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "dengr1065.madeinukraine"
         minSdk = 28
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        targetSdk = 36
+        versionCode = 2
+        versionName = "1.1"
     }
 
     buildTypes {
         release {
             isMinifyEnabled = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
         }
     }
 
@@ -45,6 +42,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.fragment.ktx)
     implementation(libs.gms.code.scanner)
     implementation(libs.kotlin.csv.jvm)
     implementation(libs.okhttp)
@@ -57,4 +55,7 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.json)
 }

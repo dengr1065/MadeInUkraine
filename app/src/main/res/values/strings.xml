@@ -3,6 +3,7 @@
 
     <string name="open_calculator">Відкрити калькулятор</string>
     <string name="update_database">Оновити базу даних</string>
+    <string name="show_stats">Статистика…</string>
 
     <string name="product_status_none">Проскануйте товар</string>
     <string name="product_status_missing">Товар не входить до списку</string>
@@ -15,13 +16,14 @@
     <string name="prop_date_added">Додано: %s</string>
 
     <string name="open_scanner">Почати сканування</string>
-    <string name="open_old_scanner">Старий сканер</string>
-    <string name="scan_error">Помилка сканування</string>
 
+    <string name="stats_title">Статистика</string>
+    <string name="stats_database_count">К-сть товарів у базі даних:</string>
+
+    <string name="scan_error">Помилка сканування</string>
     <string name="open_calculator_error">Помилка відкриття калькулятора</string>
+    <string name="online_lookup_error">Не вдалось перевірити оновлений статус товару</string>
 
     <string name="message_update_enqueued">Оновлення бази даних товарів…</string>
     <string name="message_update_in_progress">Оновлення бази даних триває, додано товарів: %d</string>
-
-    <string name="lookup_hint">Назва товару чи бренду</string>
 </resources>
