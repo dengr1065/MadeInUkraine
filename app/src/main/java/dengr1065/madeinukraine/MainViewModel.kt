@@ -70,15 +70,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun checkOnline(ean: Long): Product? {
-        return try {
-            return service.lookupByBarcode(ean)
-        } catch (e: Exception) {
-            val context = getApplication<Application>()
-            Toast.makeText(context, R.string.online_lookup_error, Toast.LENGTH_SHORT).show()
-
-            Log.e(TAG, "checkOnline: exception while checking", e)
-            null
-        }
+        return service.lookupByBarcode(ean)
     }
 
     private fun updateDatabase(stream: InputStream) {

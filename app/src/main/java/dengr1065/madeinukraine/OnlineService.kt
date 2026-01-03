@@ -16,7 +16,7 @@ class OnlineService(private val httpClient: OkHttpClient) {
         }
 
         json.getJSONObject("data").let {
-            return if (it.getInt("total") == 0) {
+            return if (it.isNull("to")) {
                 null
             } else {
                 jsonToProduct(it.getJSONArray("data").getJSONObject(0))
